@@ -5,8 +5,17 @@ ruby "3.1.3"
 
 gem "rails", "~> 7.0.5"
 gem "sprockets-rails"
-gem "sqlite3", "~> 1.4"
 gem "puma", "~> 5.0"
+
+# Use SQLite3 for development and test
+group :development, :test do
+  gem "sqlite3", "~> 1.4"
+end
+
+# Use PostgreSQL for production (Railway)
+group :production do
+  gem "pg", "~> 1.5"
+end
 gem "importmap-rails"
 gem "turbo-rails"
 gem "stimulus-rails"

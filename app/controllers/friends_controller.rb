@@ -3,7 +3,7 @@ class FriendsController < ApplicationController
 
   # GET /friends or /friends.json
   def index
-    @friends = Friend.all
+    @friends = current_user.friends
   end
 
   # GET /friends/1 or /friends/1.json
@@ -21,7 +21,7 @@ class FriendsController < ApplicationController
 
   # POST /friends or /friends.json
   def create
-    @friend = Friend.new(friend_params)
+    @friend = current_user.friends.build(friend_params)
 
     respond_to do |format|
       if @friend.save
@@ -48,27 +48,24 @@ class FriendsController < ApplicationController
   end
 
   # DELETE /friends/1 or /friends/1.json
-  # app/controllers/friends_controller.rb
+  def destroy
+    @friend.destroy
 
-def destroy
-  @friend = Friend.find(params[:id]) # Find the friend by ID
-  @friend.destroy # Destroy the found friend record
-
-  respond_to do |format|
-    format.html { redirect_to friends_url, notice: "Friend was successfully destroyed." }
-    format.json { head :no_content }
+    respond_to do |format|
+      format.html { redirect_to friends_url, notice: "Friend was successfully destroyed." }
+      format.json { head :no_content }
+    end
   end
-end
 
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_friend
-      @friend = Friend.find(params[:id])
+      @friend = current_user.friends.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def friend_params
-      params.require(:friend).permit(:first_name, :last_name, :email, :phone, :twitter, :user_id)
+      params.require(:friend).permit(:first_name, :last_name, :email, :phone, :twitter)
     end
 end
