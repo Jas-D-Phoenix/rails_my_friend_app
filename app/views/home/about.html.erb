@@ -1,1 +1,67 @@
-<h1>About Us</h1>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-8 mx-auto">
+      <h1 class="display-4 text-center mb-4">About Friends App</h1>
+
+      <div class="card mb-4">
+        <div class="card-body">
+          <h3 class="card-title">Project Overview</h3>
+          <p class="card-text">
+            Friends App is a full-stack web application built with Ruby on Rails. It demonstrates
+            core web development concepts including user authentication, database management, and
+            CRUD operations in a clean, user-friendly interface.
+          </p>
+        </div>
+      </div>
+
+      <div class="card mb-4">
+        <div class="card-body">
+          <h3 class="card-title">Key Features</h3>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">✅ User authentication and authorization with Devise</li>
+            <li class="list-group-item">✅ Full CRUD operations for managing friends</li>
+            <li class="list-group-item">✅ User-scoped data (each user sees only their friends)</li>
+            <li class="list-group-item">✅ Responsive Bootstrap 4 design</li>
+            <li class="list-group-item">✅ Production-ready deployment on Railway</li>
+            <li class="list-group-item">✅ PostgreSQL database for production</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card mb-4">
+        <div class="card-body">
+          <h3 class="card-title">Technical Stack</h3>
+          <div class="row">
+            <div class="col-md-6">
+              <h5>Backend</h5>
+              <ul>
+                <li>Ruby 3.1.3</li>
+                <li>Rails 7.0.5</li>
+                <li>PostgreSQL (Production)</li>
+                <li>SQLite3 (Development)</li>
+                <li>Devise (Authentication)</li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <h5>Frontend</h5>
+              <ul>
+                <li>Bootstrap 4.5</li>
+                <li>HTML5 / ERB</li>
+                <li>CSS3</li>
+                <li>JavaScript</li>
+                <li>Responsive Design</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-4">
+        <%= link_to "Back to Home", root_path, class: "btn btn-primary btn-lg" %>
+        <% if user_signed_in? %>
+          <%= link_to "View My Friends", friends_path, class: "btn btn-outline-primary btn-lg ml-2" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

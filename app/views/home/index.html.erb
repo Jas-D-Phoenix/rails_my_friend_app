@@ -1,1 +1,59 @@
-<h1>Hello World!</h1>
+<div class="jumbotron jumbotron-fluid bg-primary text-white text-center py-5">
+  <div class="container">
+    <h1 class="display-4">Friends App</h1>
+    <p class="lead">A simple and elegant Ruby on Rails application to manage your friends' contact information</p>
+    <hr class="my-4 bg-white">
+    <p>Create, read, update, and delete your friends' information with ease</p>
+    <% unless user_signed_in? %>
+      <%= link_to "Get Started", new_user_registration_path, class: "btn btn-light btn-lg mr-2" %>
+      <%= link_to "Sign In", new_user_session_path, class: "btn btn-outline-light btn-lg" %>
+    <% else %>
+      <%= link_to "View Friends", friends_path, class: "btn btn-light btn-lg mr-2" %>
+      <%= link_to "Add Friend", new_friend_path, class: "btn btn-outline-light btn-lg" %>
+    <% end %>
+  </div>
+</div>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-4 mb-4">
+      <div class="card h-100">
+        <div class="card-body text-center">
+          <h3 class="card-title">🔐 Secure Authentication</h3>
+          <p class="card-text">Built with Devise for secure user registration, login, and session management. Each user has their own private friends list.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="card h-100">
+        <div class="card-body text-center">
+          <h3 class="card-title">📝 Full CRUD Operations</h3>
+          <p class="card-text">Create, read, update, and delete friends with a clean and intuitive interface. Manage all your contacts in one place.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="card h-100">
+        <div class="card-body text-center">
+          <h3 class="card-title">🎨 Modern UI</h3>
+          <p class="card-text">Beautiful Bootstrap 4 styling with responsive design that works perfectly on desktop, tablet, and mobile devices.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-5 mb-5">
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="text-center mb-4">Technologies Used</h2>
+      <div class="text-center">
+        <span class="badge badge-primary badge-pill p-3 m-2" style="font-size: 1rem;">Ruby on Rails 7.0</span>
+        <span class="badge badge-primary badge-pill p-3 m-2" style="font-size: 1rem;">PostgreSQL</span>
+        <span class="badge badge-primary badge-pill p-3 m-2" style="font-size: 1rem;">Bootstrap 4</span>
+        <span class="badge badge-primary badge-pill p-3 m-2" style="font-size: 1rem;">Devise</span>
+        <span class="badge badge-primary badge-pill p-3 m-2" style="font-size: 1rem;">Railway</span>
+      </div>
+    </div>
+  </div>
+</div>
